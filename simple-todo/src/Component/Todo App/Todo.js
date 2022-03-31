@@ -3,10 +3,10 @@ import style from "./Todo.module.css"
 
 const Todo = (props) => {
   
-    const {title, desc,} = props.todo;
+    const {title, desc, Roll} = props.todo;
     const { id } = props;
 
-    const handleClike = (id)=>{
+    const handleClick = (id)=>{
         props.onRemoveTodo(id)
     }
     return (
@@ -14,8 +14,9 @@ const Todo = (props) => {
         <div> 
         <h3>{title}</h3>
         <p>{desc}</p>
+        <p>{Roll}</p>
             <button className={style.btn} onClick={()=>{
-                handleClike(id)
+                handleClick(id)
             }}>
                 <i  className='fa fa-trash fa-2x'></i>
             </button>

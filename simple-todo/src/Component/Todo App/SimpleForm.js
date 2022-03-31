@@ -3,8 +3,8 @@ import style from "./SimpleForm.module.css"
 
 const SimpleForm = (props) => {
 
-const [Todo, SetTodo] = useState({title: "", desc:""});
-const {title, desc} = Todo;
+const [Todo, SetTodo] = useState({title: "", desc:"", Roll:""} );
+const {title, desc,Roll} = Todo;
 const hendleChange = (event) =>{
 
      const name = event.target.name;
@@ -18,7 +18,7 @@ const hendleChange = (event) =>{
 const hendleSubmit = (event) =>{
     event.preventDefault();
     props.onAddTodo(Todo)
-    SetTodo({title:"", desc:""})
+    SetTodo({title:"", desc:"",Roll:""})
 
 }
 
@@ -26,23 +26,35 @@ const hendleSubmit = (event) =>{
     <>
     <form className={style.form} onSubmit={hendleSubmit}>
         <div className={style["form-field"]}>
-            <label htmlFor='title'> Title: </label>
+            <label htmlFor='title'> Name: </label>
             <input 
              type="text"
               id='title' 
               name='title'
               value={title}
-              onChange={hendleChange}/>
+              onChange={hendleChange}
+              required/>
         </div>
 
         <div className={style["form-field"]}>
-            <label htmlFor='title'> Descreption: </label>
-            <textarea 
-             type="text"
+            <label htmlFor='title'> Age: </label>
+            <input 
+             type="number"
               id='desc' 
               name='desc'
               value={desc}
-              onChange={hendleChange}/>
+              onChange={hendleChange}
+              required/>
+        </div>
+        <div className={style["form-field"]}>
+            <label htmlFor='title'> Roll: </label>
+            <input 
+             type="number"
+              id='Roll' 
+              name='Roll'
+              value={Roll}
+              onChange={hendleChange}
+              required/>
         </div>
         <div>
             <button type='submit'>
